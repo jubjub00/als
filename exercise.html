@@ -75,78 +75,102 @@
         </div>
       </nav>
     </header>
-
-    <div class="row ms-5 me-5 mobile-margin">
-      <div class="col-12 col-sm-6 mt-5 justify-content-md-center">
-        <div class="row justify-content-md-center">
-          <div class="col-8">
-            <span><b>ท่าที่ 1 ท่ายกแขนขึ้นตรง</b></span>
-            <span
-              >นอนหงายแขนชิดลำตัว จากนั้นยกแขนขึ้นข้างหน้าช้าๆ
-              จนถึงจุดที่ตึงหรือจนแขนชิดหู
-              จากนั้นหุบกลับสู่ตำแหน่งเดิมช้าๆ</span
-            >
-          </div>
-        </div>
-        <div class="row mt-3 justify-content-md-center">
-          <div class="col-12 col-sm-8 text-center">
-            <img class="img_therapy" src="img/ex.svg" alt="ex" />
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 mt-5 justify-content-md-center">
-        <div class="row justify-content-md-center">
-          <div class="col-8">
-            <span><b>ท่าที่ 1 ท่ายกแขนขึ้นตรง</b></span>
-            <span
-              >นอนหงายแขนชิดลำตัว จากนั้นยกแขนขึ้นข้างหน้าช้าๆ
-              จนถึงจุดที่ตึงหรือจนแขนชิดหู
-              จากนั้นหุบกลับสู่ตำแหน่งเดิมช้าๆ</span
-            >
-          </div>
-        </div>
-        <div class="row mt-3 justify-content-md-center">
-          <div class="col-12 col-sm-8 text-center">
-            <img class="img_therapy" src="img/ex.svg" alt="ex" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row ms-5 me-5 mt-5">
-      <div class="col-12 mt-5 col-sm-6 justify-content-md-center">
-        <div class="row justify-content-md-center">
-          <div class="col-8">
-            <span><b>ท่าที่ 1 ท่ายกแขนขึ้นตรง</b></span>
-            <span
-              >นอนหงายแขนชิดลำตัว จากนั้นยกแขนขึ้นข้างหน้าช้าๆ
-              จนถึงจุดที่ตึงหรือจนแขนชิดหู
-              จากนั้นหุบกลับสู่ตำแหน่งเดิมช้าๆ</span
-            >
-          </div>
-        </div>
-        <div class="row mt-3 justify-content-md-center">
-          <div class="col-12 col-sm-8 text-center">
-            <img class="img_therapy" src="img/ex.svg" alt="ex"/>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mt-5 col-sm-6 justify-content-md-center">
-        <div class="row justify-content-md-center">
-          <div class="col-8">
-            <span><b>ท่าที่ 1 ท่ายกแขนขึ้นตรง</b></span>
-            <span
-              >นอนหงายแขนชิดลำตัว จากนั้นยกแขนขึ้นข้างหน้าช้าๆ
-              จนถึงจุดที่ตึงหรือจนแขนชิดหู
-              จากนั้นหุบกลับสู่ตำแหน่งเดิมช้าๆ</span
-            >
-          </div>
-        </div>
-        <div class="row mt-3 justify-content-md-center">
-          <div class="col-12 col-sm-8 text-center">
-            <img class="img_therapy" src="img/ex.svg" alt="ex" />
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="row ms-5 me-5 mobile-margin" id="show-exercise"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
+
+<script>
+  $(document).ready(function () {
+    const htmlText = (title, body, img) => `
+    <div class="col-12 col-sm-6 mt-5 justify-content-md-center">
+        <div class="row justify-content-md-center">
+          <div class="col-12 col-sm-8">
+            <span><b>${title}</b></span>
+            <span
+              >${body}</span
+            >
+          </div>
+        </div>
+        <div class="row mt-3 justify-content-md-center">
+          <div class="col-12 col-sm-8 text-center">
+            <img class="img_therapy" src="${img}" alt="ex" />
+          </div>
+        </div>
+      </div>
+    `;
+
+    const exList = [
+      {
+        title: "ท่าที่ 1 ยกแขนขึ้นตรง",
+        body: "นอนหงายแขนชิดลำตัว จากนั้นยกแขนขึ้นข้างหน้าช้าๆ จนถึงจุดที่ตึงหรือจนแขนชิดหู จากนั้นหุบกลับสู่ตำแหน่งเดิมช้าๆ",
+        img: "img/01.gif",
+      },
+      {
+        title: "ท่าที่ 2 ยกแขนทางด้านข้าง",
+        body: "นอนหงายแขนชิดลำตัว จากนั้นกางแขนออกทางด้านข้างจนตึง และหมุนปลายแขนให้นิ้วโป้งชี้ขึ้นแล้วยกแขนจนถึงจุดที่ตึงหรือจนแนบชิดหู จากนั้นหุบเข้าตำแหน่งเดิม",
+        img: "img/02.gif",
+      },
+      {
+        title: "ท่าที่ 3 ชูแขนขึ้นเพดาน",
+        body: "งอศอกขึ้น แขนชิดลำตัว จากนั้นชูแขนขึ้น แล้วหุบเข้าตำแหน่งเดิม",
+        img: "img/03.gif",
+      },
+      {
+        title: "ท่าที่ 4 งอ-เหยียดศอก",
+        body: "เหยียดแขนสุดแล้วงอศอกขึ้นมา พยายามให้ถึงหัวไหล่มากที่สุด",
+        img: "img/04.gif",
+      },
+      {
+        title: "ท่าที่ 5 หมุนแขนคว่ำหงายมือ",
+        body: "นอนหงายแขนชิดลำตัว งอข้อศอกขึ้น จากนั้นหมุนปลายแขนให้มือหงาย",
+        img: "img/05.gif",
+      },
+      {
+        title: "ท่าที่ 6 กระดกข้อมือขึ้นตรง",
+        body: "นอนหงายแขนชิดลำตัว งอข้อศอกขึ้น จากนั้นกระดกข้อมือขึ้นลง",
+        img: "img/06.gif",
+      },
+      {
+        title: "ท่าที่ 7 งอสะโพกยกขาขึ้น",
+        body: "นอนหงาย จากนั้นงอสะโพกขึ้นพร้อมเหยียดขาไว้ จากนั้นวางลงช้าๆ",
+        img: "img/07.gif",
+      },
+      {
+        title: "ท่าที่ 8 ยกขางอเข่างอสะโพก",
+        body: "นอนหงาย จากนั้นงอเข่าและสะโพกขึ้น แล้วเหยียดขาไปข้างหน้าตรงๆ",
+        img: "img/08.gif",
+      },
+      {
+        title: "ท่าที่ 9 กางขาหุบขา",
+        body: "กางขาออกด้านข้างตรงๆ ไม่งอสะโพก จากนั้นหุบขาเข้าตำแหน่งเดิม",
+        img: "img/09.gif",
+      },
+      {
+        title: "ท่าที่ 10 หมุน-กางสะโพก",
+        body: "นอนหงาย ชันเข่าข้างหนึ่งขึ้น จากนั้นหมุนสะโพกเข้าออก",
+        img: "img/10.gif",
+      },
+      {
+        title: "ท่าที่ 11 กระดกข้อเท้าขึ้นลง",
+        body: "นอนหงาย จากนั้นกระดกข้อเท้าขึ้นลง ให้ผู้ช่วยวางมือ แล้วใช้ท้องแขนยันปลายเท้าขึ้น",
+        img: "img/11.gif",
+      },
+      {
+        title: "ท่าที่ 12 ยกก้นขึ้นค้างไว้",
+        body: "ท่าเริ่มต้น นอนหงาย ชันขาขึ้นสองข้าง จากนั้นยกก้นลอยขึ้น เกร็งค้างไว้ หายใจเข้าตามปกติ นับหนึ่งถึงสิบในใจแล้วจึงผ่อนตัวลง",
+        img: "img/12.gif",
+      },
+    ];
+
+    let html = "";
+    exList.forEach((data) => {
+      html += htmlText(data.title, data.body, data.img);
+    });
+    $("#show-exercise").append(html);
+  });
+</script>
