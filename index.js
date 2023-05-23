@@ -25,6 +25,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+app.get("/", (req, res) => {
+  res.send('test ok');
+});
+
 app.post("/login", (req, res) => {
   const { email = "", password = "" } = req.body;
   connection.query(
@@ -155,7 +160,7 @@ app.post("/update-record", (req, res) => {
   );
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
