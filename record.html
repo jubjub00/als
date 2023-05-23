@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>บันทึก</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="web">
+      <!-------------------------header------------------------>
+      <div class="logo">ANS</div>
+      <nav>
+        <ul class="nav_link">
+          <li><a href="index_pj.html">Home</a></li>
+          <li><a href="therapy.html">Therapy</a></li>
+          <li><a class="active" href="profile.html">Profile</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <header class="mobile">
+      <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand logo">ANS</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="nav_link p-0">
+                <li><a href="index_pj.html">Home</a></li>
+                <li><a href="therapy.html">Therapy</a></li>
+                <li><a class="active" href="profile.html">Profile</a></li>
+                <li><a href="login.html">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="row ms-5 me-5">
+      <div class="col-12 col-sm-4 text-center web flex-center">
+        <img src="img/profile.svg" alt="profile" width="200" height="200" />
+        <ul class="ul-profile">
+          <li>
+            <a class="li-inactive" href="profile.html">ข้อมูลส่วนตัว</a>
+          </li>
+          <li><a href="location.html" class="li-inactive">ข้อมูลที่อยู่</a></li>
+          <li><a href="record.html" class="active li-active">บันทึก</a></li>
+        </ul>
+      </div>
+      <div
+        class="col-12 col-sm-4 text-center mobile mb-3"
+        style="margin-top: 5rem !important"
+      >
+        <img src="img/profile.svg" alt="profile" width="100" height="100" />
+        <ul class="ul-profile">
+          <li>
+            <a class="li-inactive" href="profile.html" style="font-size: 20px"
+              >ข้อมูลส่วนตัว</a
+            >
+          </li>
+          <li>
+            <a href="location.html" class="li-inactive" style="font-size: 20px"
+              >ข้อมูลที่อยู่</a
+            >
+          </li>
+          <li>
+            <a
+              href="record.html"
+              class="active li-active"
+              style="font-size: 20px"
+              >บันทึก</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-sm-8">
+        <div class="row web">
+          <div class="col-6">
+            <h2 class="text-title">Profile</h2>
+          </div>
+          <div class="col-6 text-end flex-end">
+            <div onclick="update()">
+              <img src="img/edit-btn.svg" alt="edit" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row mobile">
+          <div class="col-6">
+            <h2 class="text-title" style="font-size: 20px">Profile</h2>
+          </div>
+
+          <div class="col-6 text-end flex-end-mobile">
+            <img
+              src="img/edit-btn.svg"
+              alt="edit"
+              width="100"
+              onclick="update()"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-style mt-3">
+            <div class="row">
+              <div class="col-12">
+                <label for="customRange2" class="form-label"
+                  >1.ปริมาณความปวดของผู้ป่วยหลังจากการทำกายภาพบำบัดอยู่ในระดับใด
+                  <span
+                    data-toggle="tooltip"
+                    title="- 0 คือไม่ปวดเลย&#013;- 1-3 คือปวดนิดๆ ผู้ป่วยจะรู้สึดเจ็บปวด หรือรู้สึกไม่สบายตัว แต่ยังสามารถทำกิจกรรมต่างๆ ใช้ชีวิตประจำวันได้ไม่ติดขัด&#013;- 4-6 คือ ปวดปานกลาง-ปวดรุนแรง ความเจ็บปวดจะทำให้ผู้ป่วยเริ่มสูญเสียสมาธิ จนส่งผลกระทบต่อการดำเนินชีวิตประจำวัน เช่น การนั่ง การยืน การเดิน หรือการนอน&#013;- 7-9 คือ ปวดรุนแรงมาก ผู้ป่วยจะรู้สึกเจ็บปวดมาก จนไม่สามารถออกกำลังกาย หรือทำกิจกรรมต่างๆได้&#013;- 10 คือ ปวดรุนแรงมากจนทนไม่ไหว ไม่สามารถเคลื่อนไหว หรือทำกิจกรรมใดๆได้เลย  เช่น ปวดจนนอนไม่หลับ ก้มไม่ได้ ไม่สามารถเดินตัวตรงได้"
+                    ><u><b>คำอธิบาย</b> </u>
+                  </span></label
+                >
+                <br /><span id="show-text-range">5 - ปวดปานกลาง-ปวดรุนแรง</span>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  max="10"
+                  id="q-1"
+                  onchange="rangeChange()"
+                />
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12">
+                2.ปริมาณความรู้สึกตึง ร้าวบริเวณที่ทำการกายภาพบำบัด
+                <select
+                  class="form-select"
+                  id="q-2"
+                  aria-label="Default select example"
+                >
+                  <option value="0" selected>ไม่รู้สึกเลย</option>
+                  <option value="1">รู้สึกตึงเล็กน้อย</option>
+                  <option value="2">รู้สึกตึงปานกลาง-มาก</option>
+                  <option value="3">รู้สึกตึงมากจนทนไม่ไหว</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12">
+                3.หลังจากทำการกายภาพบำบัดสามารถขยับส่วนต่างๆของร่างกายได้ดีขึ้นหรือน้อยลงขึ้นระดับใด
+                <select
+                  class="form-select"
+                  id="q-3"
+                  aria-label="Default select example"
+                >
+                  <option value="0" selected>
+                    สามารถขยับขา แขนได้ดีขึ้นมาก
+                  </option>
+                  <option value="1">สามารถขยับขา แขนได้ดีขึ้นปานกลาง</option>
+                  <option value="2">สามารถขยับขา แขนได้มากขึ้นเล็กน้อย</option>
+                  <option value="3">ไม่สามารถขยับ ขาแขนได้ดีขึ้นเลย</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12">
+                4.ผู้ป่วยสามารถงอแขน งอขาได้มากขึ้นในระดับใด
+                <select
+                  class="form-select"
+                  id="q-4"
+                  aria-label="Default select example"
+                >
+                  <option value="0" selected>มากที่สุด</option>
+                  <option value="1">มาก</option>
+                  <option value="2">ปานกลาง</option>
+                  <option value="3">น้อย</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12">
+                <label for="q-5" class="form-label"
+                  >5.อาการเพิ่มเติมที่ผู้ดูแลผู้ป่วยสังเกตเห็น</label
+                >
+                <textarea
+                  class="form-control"
+                  id="q-5"
+                  rows="3"
+                  placeholder="หมายเหตุเพิ่มเติม..."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img
+      src="img/bg-1.svg"
+      alt="bg-1"
+      width="400"
+      class="fixed-bottom mobile-bottom"
+    />
+
+    <img
+      src="img/bg-2.svg"
+      alt="bg-2"
+      width="400"
+      class="fixed-bottom-right mobile-bottom"
+    />
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-delay="3000"
+      >
+        <div class="toast-body">This is a toast message.</div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("กรุณาเข้าสู่ระบบ");
+      window.location.href = "/login.html";
+    }
+
+    if (user) {
+      $.ajax({
+        url: `http://localhost:3000/user?id=${user.id}`,
+        method: "GET",
+        success: function (response) {
+          if (response.q1) $("#q-1").val(response.q1);
+          if (response.q2) $("#q-2").val(response.q2);
+          if (response.q3) $("#q-3").val(response.q3);
+          if (response.q4) $("#q-4").val(response.q4);
+          if (response.q5) $("#q-5").val(response.q5);
+
+          rangeChange();
+        },
+        error: function (xhr, status, error) {
+          console.log("error", error);
+        },
+      });
+    }
+  });
+
+  function rangeChange() {
+    const v = $("#q-1").val();
+    switch (v) {
+      case "0":
+        $("#show-text-range").text("0 - ไม่ปวดเลย");
+        break;
+      case "1":
+        $("#show-text-range").text("1 - ปวดนิดๆ");
+        break;
+      case "2":
+        $("#show-text-range").text("2 - ปวดนิดๆ");
+        break;
+      case "3":
+        $("#show-text-range").text("3 - ปวดนิดๆ");
+        break;
+      case "4":
+        $("#show-text-range").text("4 - ปวดปานกลาง-ปวดรุนแรง");
+        break;
+      case "5":
+        $("#show-text-range").text("5 - ปวดปานกลาง-ปวดรุนแรง");
+        break;
+      case "6":
+        $("#show-text-range").text("6 - ปวดปานกลาง-ปวดรุนแรง");
+        break;
+      case "7":
+        $("#show-text-range").text("7 - ปวดรุนแรงมาก");
+        break;
+      case "8":
+        $("#show-text-range").text("8 - ปวดรุนแรงมาก");
+        break;
+      case "9":
+        $("#show-text-range").text("9 - ปวดรุนแรงมาก");
+        break;
+      case "10":
+        $("#show-text-range").text(
+          "10 - ปวดรุนแรงมากจนทนไม่ไหว ไม่สามารถเคลื่อนไหว"
+        );
+        break;
+    }
+  }
+
+  function update() {
+    const q1 = $("#q-1").val();
+    const q2 = $("#q-2").val();
+    const q3 = $("#q-3").val();
+    const q4 = $("#q-4").val();
+    const q5 = $("#q-5").val();
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("กรุณาเข้าสู่ระบบ");
+      window.location.href = "/login.html";
+    }
+
+    $.ajax({
+      url: "http://localhost:3000/update-record",
+      method: "POST",
+      data: {
+        q1,
+        q2,
+        q3,
+        q4,
+        q5,
+        id: user.id,
+      },
+      success: function (response) {
+        console.log("response", response);
+        $(".toast").addClass("success-toast");
+        $(".toast-body").text("บันทึกข้อมูลสำเร็จ");
+        $(".toast").toast("show");
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+        $(".toast").addClass("error-toast");
+        $(".toast-body").text("บันทึกข้อมูลผิดพลาด");
+        $(".toast").toast("show");
+      },
+    });
+  }
+</script>

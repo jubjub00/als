@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>โรคกล้ามเนื้ออ่อนแรง</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="web">
+      <!-------------------------header------------------------>
+      <div class="logo">ANS</div>
+      <nav>
+        <ul class="nav_link">
+          <li><a href="index_pj.html">Home</a></li>
+          <li><a href="therapy.html">Therapy</a></li>
+          <li><a class="active" href="profile.html">Profile</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <header class="mobile">
+      <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand logo">ANS</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="nav_link p-0">
+                <li><a href="index_pj.html">Home</a></li>
+                <li><a href="therapy.html">Therapy</a></li>
+                <li><a class="active" href="profile.html">Profile</a></li>
+                <li><a href="login.html">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="row ms-5 me-5">
+      <div class="col-12 col-sm-4 text-center web flex-center">
+        <img src="img/profile.svg" alt="profile" width="200" height="200" />
+        <ul class="ul-profile">
+          <li>
+            <a class="active li-active" href="profile.html">ข้อมูลส่วนตัว</a>
+          </li>
+          <li><a href="location.html" class="li-inactive">ข้อมูลที่อยู่</a></li>
+          <li><a href="record.html" class="li-inactive">บันทึก</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-4 text-center mobile mb-3" style="margin-top: 5rem!important;">
+        <img src="img/profile.svg" alt="profile" width="100" height="100" />
+        <ul class="ul-profile">
+          <li>
+            <a class="active li-active" href="profile.html" style="font-size: 20px;">ข้อมูลส่วนตัว</a>
+          </li>
+          <li><a href="location.html" class="li-inactive" style="font-size: 20px;">ข้อมูลที่อยู่</a></li>
+          <li><a href="record.html" class="li-inactive" style="font-size: 20px;">บันทึก</a></li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-sm-8">
+        <div class="row web">
+          <div class="col-6">
+            <h2 class="text-title">Profile</h2>
+          </div>
+          <div class="col-6 text-end flex-end">
+            <div onclick="update()">
+              <img src="img/edit-btn.svg" alt="edit" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row mobile">
+          <div class="col-6">
+            <h2 class="text-title" style="font-size: 20px;">Profile</h2>
+          </div>
+
+          <div class="col-6 text-end flex-end-mobile">
+              <img src="img/edit-btn.svg" alt="edit" width="100" onclick="update()"/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-style mt-3">
+            <div class="mb-3 row">
+              <label for="i-name" class="col-2 col-sm-1 col-form-label text-end"
+                ><img src="img/user-icon.svg" alt="profile" width="30"
+              /></label>
+              <div class="col-10 col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="i-name"
+                  placeholder="Enter name"
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="i-email" class="col-2 col-sm-1 col-form-label text-end"
+                ><img src="img/email-icon.svg" alt="profile" width="30"
+              /></label>
+              <div class="col-10 col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="i-email"
+                  placeholder="Enter email"
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label
+                for="i-phone-number"
+                class="col-2 col-sm-1 col-form-label text-end"
+                ><img src="img/phone-icon.svg" alt="profile" width="30"
+              /></label>
+              <div class="col-10 col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="i-phone-number"
+                  placeholder="Enter phone number"
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="i-password" class="col-2 col-sm-1 col-form-label text-end"
+                ><img src="img/lock-icon.svg" alt="profile" width="30"
+              /></label>
+              <div class="col-10 col-sm-10">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="i-password"
+                  placeholder="Enter password"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img src="img/bg-1.svg" alt="bg-1" width="400" class="fixed-bottom mobile-bottom" />
+
+    <img src="img/bg-2.svg" alt="bg-2" width="400" class="fixed-bottom-right mobile-bottom" />
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-delay="3000"
+      >
+        <div class="toast-body">This is a toast message.</div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("กรุณาเข้าสู่ระบบ");
+      window.location.href = "/login.html";
+    }
+
+    if (user) {
+      $.ajax({
+        url: `http://localhost:3000/user?id=${user.id}`,
+        method: "GET",
+        success: function (response) {
+          console.log("response", response);
+          $("#i-name").val(response.name || "");
+          $("#i-email").val(response.email || "");
+          $("#i-phone-number").val(response.phone_number || "");
+          $("#i-password").val(response.password || "");
+        },
+        error: function (xhr, status, error) {
+          console.log("error", error);
+        },
+      });
+    }
+  });
+
+  function update() {
+    const name = $("#i-name").val();
+    const email = $("#i-email").val();
+    const password = $("#i-password").val();
+    const phoneNumber = $("#i-phone-number").val();
+
+    if (!name || !email || !password || !phoneNumber) {
+      $(".toast").addClass("error-toast");
+      $(".toast-body").text("กรุณากรอกข้อมูลให้ครบถ้วน");
+      $(".toast").toast("show");
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("กรุณาเข้าสู่ระบบ");
+      window.location.href = "/login.html";
+    }
+
+    $.ajax({
+      url: "http://localhost:3000/update-profile",
+      method: "POST",
+      data: {
+        name,
+        email,
+        password,
+        phoneNumber,
+        id: user.id,
+      },
+      success: function (response) {
+        $(".toast").addClass("success-toast");
+        $(".toast-body").text("แก้ไขข้อมูลสำเร็จ");
+        $(".toast").toast("show");
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", error);
+        $(".toast").addClass("error-toast");
+        $(".toast-body").text("แก้ไขข้อมูลผิดพลาด");
+        $(".toast").toast("show");
+      },
+    });
+  }
+</script>
