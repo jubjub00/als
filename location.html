@@ -249,7 +249,7 @@
 
     if (user) {
       $.ajax({
-        url: `http://localhost:3000/user?id=${user.id}`,
+        url: `https://zxcvzxcv.herokuapp.com/user?id=${user.id}`,
         method: "GET",
         success: function (response) {
           $("#i-card-id").val(response.card_id);
@@ -284,7 +284,7 @@
     }
 
     $.ajax({
-      url: "http://localhost:3000/update-location",
+      url: "https://zxcvzxcv.herokuapp.com/update-location",
       method: "POST",
       data: {
         cardId,

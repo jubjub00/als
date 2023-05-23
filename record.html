@@ -274,7 +274,7 @@
 
     if (user) {
       $.ajax({
-        url: `http://localhost:3000/user?id=${user.id}`,
+        url: `https://zxcvzxcv.herokuapp.com/user?id=${user.id}`,
         method: "GET",
         success: function (response) {
           if (response.q1) $("#q-1").val(response.q1);
@@ -347,7 +347,7 @@
     }
 
     $.ajax({
-      url: "http://localhost:3000/update-record",
+      url: "https://zxcvzxcv.herokuapp.com/update-record",
       method: "POST",
       data: {
         q1,

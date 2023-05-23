@@ -218,7 +218,7 @@
 
     if (user) {
       $.ajax({
-        url: `http://localhost:3000/user?id=${user.id}`,
+        url: `https://zxcvzxcv.herokuapp.com/user?id=${user.id}`,
         method: "GET",
         success: function (response) {
           console.log("response", response);
@@ -254,7 +254,7 @@
     }
 
     $.ajax({
-      url: "http://localhost:3000/update-profile",
+      url: "https://zxcvzxcv.herokuapp.com/update-profile",
       method: "POST",
       data: {
         name,
