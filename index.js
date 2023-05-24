@@ -84,6 +84,22 @@ app.get("/user", (req, res) => {
   });
 });
 
+app.get("/record", (req, res) => {
+  const { id = "" } = req.query;
+  connection.query(`SELECT * FROM record where user_id='${id}'`, (err, rows) => {
+    if (err) {
+      console.error("Error executing the query: ", err);
+      res.status(500).send("Error fetching data from the database");
+      return;
+    }
+    if (rows[0]) {
+      res.json(rows);
+    } else {
+      res.status(404).send("Error not found user");
+    }
+  });
+});
+
 app.post("/update-profile", (req, res) => {
   const {
     name = "",
@@ -144,10 +160,14 @@ app.post("/update-record", (req, res) => {
     id = "",
   } = req.body;
   connection.query(
-    `UPDATE user SET q1 = '${q1}', q2 = '${q2}', q3 = '${q3}', q4 = '${q4}', q5 = '${q5}' WHERE id = '${id}'`,
+    `INSERT INTO record (q1, q2, q3, q4, q5, user_id, create_dt)
+    (name, email, password) VALUES ( '${q1}','${q2}','${q3}','${q4}','${q5}','${id}',NOW())`,
     (err, rows) => {
+
+      console.log("Error executing the query: ", err);
       if (err) {
         console.error("Error executing the query: ", err);
+        
         res.status(500).send("Error fetching data from the database");
         return;
       }

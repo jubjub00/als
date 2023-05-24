@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ข้อมูลที่อยู่</title>
+    <title>บันทึก</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -83,11 +83,9 @@
           <li>
             <a class="li-inactive" href="profile.html">ข้อมูลส่วนตัว</a>
           </li>
-          <li>
-            <a href="location.html" class="active li-active">ข้อมูลที่อยู่</a>
-          </li>
-          <li><a href="record.html" class="li-inactive">บันทึก</a></li>
-          <li><a href="recordList.html" class=" li-inactive">ข้อมูลที่บันทึก</a></li>
+          <li><a href="location.html" class="li-inactive">ข้อมูลที่อยู่</a></li>
+          <li><a href="record.html" class=" li-inactive">บันทึก</a></li>
+          <li><a href="recordList.html" class="active li-active">ข้อมูลที่บันทึก</a></li>
         </ul>
       </div>
       <div
@@ -102,19 +100,18 @@
             >
           </li>
           <li>
-            <a
-              href="location.html"
-              class="active li-active"
-              style="font-size: 20px"
+            <a href="location.html" class="li-inactive" style="font-size: 20px"
               >ข้อมูลที่อยู่</a
             >
           </li>
           <li>
-            <a href="record.html" class="li-inactive" style="font-size: 20px"
+            <a
+              href="record.html"
+              class="active li-active"
+              style="font-size: 20px"
               >บันทึก</a
             >
           </li>
-          <li><a href="recordList.html" class=" li-inactive">ข้อมูลที่บันทึก</a></li>
         </ul>
       </div>
 
@@ -145,65 +142,21 @@
           </div>
         </div>
 
-        <div class="row">
-          <form action="#" method="post" class="form-style mt-3">
-            <div class="mb-3 row">
-              <label for="i-card-id" class="col-sm-2 col-form-label text-start"
-                >บัตรประชาชน</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="i-card-id"
-                  placeholder="Enter card number"
-                />
-              </div>
-            </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>วันที่</th>
+              <th>คำถามที่ 1</th>
+              <th>คำถามที่ 2</th>
+              <th>คำถามที่ 3</th>
+              <th>คำถามที่ 4</th>
+              <th>คำถามที่ 5</th>
+            </tr>
+          </thead>
+          <tbody id="t-body">
+          </tbody>
 
-            <div class="mb-3 row">
-              <label for="i-location" class="col-sm-2 col-form-label text-start"
-                >ที่อยู่</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="i-location"
-                  placeholder="Enter location"
-                />
-              </div>
-            </div>
-
-            <div class="mb-3 row">
-              <label for="i-province" class="col-sm-2 col-form-label text-start"
-                >จังหวัด</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="i-province"
-                  placeholder="Enter province"
-                />
-              </div>
-            </div>
-
-            <div class="mb-3 row">
-              <label for="i-zipcode" class="col-sm-2 col-form-label text-start"
-                >รหัสไปรษณีย์</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="i-zipcode"
-                  placeholder="Enter zipcode"
-                />
-              </div>
-            </div>
-          </form>
-        </div>
+        </table>
       </div>
     </div>
 
@@ -232,7 +185,6 @@
         <div class="toast-body">This is a toast message.</div>
       </div>
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.7.0.min.js"
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
@@ -243,6 +195,8 @@
 
 <script>
   $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
       alert("กรุณาเข้าสู่ระบบ");
@@ -251,61 +205,36 @@
 
     if (user) {
       $.ajax({
-        url: `https://zxcvzxcv.herokuapp.com/user?id=${user.id}`,
+        url: `https://zxcvzxcv.herokuapp.com/record?id=${user.id}`,
         method: "GET",
         success: function (response) {
-          $("#i-card-id").val(response.card_id);
-          $("#i-location").val(response.location);
-          $("#i-province").val(response.province);
-          $("#i-zipcode").val(response.zipcode);
+          let a = ""
+
+          for (let index = 0; index < 5; index++) {
+            
+            a += `
+            <tr>
+                    <td>วันที่</td>
+                    <td>คำถามที่ 1</td>
+                    <td>คำถามที่ 2</td>
+                    <td>คำถามที่ 3</td>
+                    <td>คำถามที่ 4</td>
+                    <td>คำถามที่ 5</td>
+                  </tr>
+            `
+          }
+          $('#t-body').append(a)
         },
         error: function (xhr, status, error) {
           console.log("error", error);
         },
       });
     }
+
+
+    
+    
   });
 
-  function update() {
-    const cardId = $("#i-card-id").val();
-    const location = $("#i-location").val();
-    const province = $("#i-province").val();
-    const zipcode = $("#i-zipcode").val();
 
-    if (!cardId || !location || !province || !zipcode) {
-      $(".toast").addClass("error-toast");
-      $(".toast-body").text("กรุณากรอกข้อมูลให้ครบถ้วน");
-      $(".toast").toast("show");
-      return;
-    }
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      alert("กรุณาเข้าสู่ระบบ");
-      window.location.href = "./login.html";
-    }
-
-    $.ajax({
-      url: "https://zxcvzxcv.herokuapp.com/update-location",
-      method: "POST",
-      data: {
-        cardId,
-        location,
-        province,
-        zipcode,
-        id: user.id,
-      },
-      success: function (response) {
-        $(".toast").addClass("success-toast");
-        $(".toast-body").text("แก้ไขข้อมูลสำเร็จ");
-        $(".toast").toast("show");
-      },
-      error: function (xhr, status, error) {
-        console.error("Error:", error);
-        $(".toast").addClass("error-toast");
-        $(".toast-body").text("แก้ไขข้อมูลผิดพลาด");
-        $(".toast").toast("show");
-      },
-    });
-  }
 </script>
