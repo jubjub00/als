@@ -204,26 +204,47 @@
     }
 
     if (user) {
+      const q1 = ["0 - ไม่ปวดเลย","1 - ปวดนิดๆ","2 - ปวดนิดๆ","3 - ปวดนิดๆ","4 - ปวดปานกลาง-ปวดรุนแรง","5 - ปวดปานกลาง-ปวดรุนแรง","6 - ปวดปานกลาง-ปวดรุนแรง","7 - ปวดรุนแรงมาก","8 - ปวดรุนแรงมาก","9 - ปวดรุนแรงมาก","10 - ปวดรุนแรงมากจนทนไม่ไหว ไม่สามารถเคลื่อนไหว"]
+      const q2 = ["ไม่รู้สึกเลย","รู้สึกตึงเล็กน้อย","รู้สึกตึงปานกลาง-มาก","รู้สึกตึงมากจนทนไม่ไหว"]
+      const q3 = ["สามารถขยับขา แขนได้ดีขึ้นมาก","สามารถขยับขา แขนได้ดีขึ้นปานกลาง","สามารถขยับขา แขนได้มากขึ้นเล็กน้อย","ไม่สามารถขยับ ขาแขนได้ดีขึ้นเลย"]
+      const q4 = ["มากที่สุด","มาก","ปานกลาง","น้อย"]
+
       $.ajax({
         url: `https://zxcvzxcv.herokuapp.com/record?id=${user.id}`,
         method: "GET",
         success: function (response) {
           console.log('response',response);
-          let a = ""
+          let html = ""
           response.forEach(element => {
-          
-            a += `
+            let qq1 = "",qq2 = "",qq3 = "",qq4 = "",qq5 = ""
+            if(!isNaN(element.q1)){
+              qq1 = q1[Number(element.q1)]
+            }
+
+            if(!isNaN(element.q2)){
+              qq2 = q2[Number(element.q2)]
+            }
+
+            if(!isNaN(element.q3)){
+              qq3 = q3[Number(element.q3)]
+            }
+
+            if(!isNaN(element.q4)){
+              qq4 = q4[Number(element.q4)]
+            }
+
+            html += `
             <tr>
                     <td>${element.create_dt.split('T')[0]}</td>
-                    <td>${element.q1}</td>
-                    <td>${element.q2}</td>
-                    <td>${element.q3}</td>
-                    <td>${element.q4}</td>
+                    <td>${qq1}</td>
+                    <td>${qq2}</td>
+                    <td>${qq3}</td>
+                    <td>${qq4}</td>
                     <td>${element.q5}</td>
                   </tr>
             `
           });
-          $('#t-body').append(a)
+          $('#t-body').append(html)
         },
         error: function (xhr, status, error) {
           console.log("error", error);
