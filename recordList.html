@@ -205,24 +205,24 @@
 
     if (user) {
       $.ajax({
-        url: `https://zxcvzxcv.herokuapp.com/record?id=${user.id}`,
+        url: `http://localhost:3000/record?id=${user.id}`,//`https://zxcvzxcv.herokuapp.com/record?id=${user.id}`,
         method: "GET",
         success: function (response) {
+          console.log('response',response);
           let a = ""
-
-          for (let index = 0; index < 5; index++) {
-            
+          response.forEach(element => {
+          
             a += `
             <tr>
-                    <td>วันที่</td>
-                    <td>คำถามที่ 1</td>
-                    <td>คำถามที่ 2</td>
-                    <td>คำถามที่ 3</td>
-                    <td>คำถามที่ 4</td>
-                    <td>คำถามที่ 5</td>
+                    <td>${element.create_dt.split('T')[0]}</td>
+                    <td>${element.q1}</td>
+                    <td>${element.q2}</td>
+                    <td>${element.q3}</td>
+                    <td>${element.q4}</td>
+                    <td>${element.q5}</td>
                   </tr>
             `
-          }
+          });
           $('#t-body').append(a)
         },
         error: function (xhr, status, error) {

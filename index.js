@@ -160,8 +160,7 @@ app.post("/update-record", (req, res) => {
     id = "",
   } = req.body;
   connection.query(
-    `INSERT INTO record (q1, q2, q3, q4, q5, user_id, create_dt)
-    (name, email, password) VALUES ( '${q1}','${q2}','${q3}','${q4}','${q5}','${id}',NOW())`,
+    `INSERT INTO record (q1, q2, q3, q4, q5, user_id, create_dt) VALUES ( '${q1}','${q2}','${q3}','${q4}','${q5}','${id}',NOW())`,
     (err, rows) => {
 
       console.log("Error executing the query: ", err);
