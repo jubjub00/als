@@ -205,7 +205,7 @@
 
     if (user) {
       $.ajax({
-        url: `http://localhost:3000/record?id=${user.id}`,//`https://zxcvzxcv.herokuapp.com/record?id=${user.id}`,
+        url: `https://zxcvzxcv.herokuapp.com/record?id=${user.id}`,
         method: "GET",
         success: function (response) {
           console.log('response',response);
